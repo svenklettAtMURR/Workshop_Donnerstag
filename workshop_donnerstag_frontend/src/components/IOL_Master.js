@@ -1,22 +1,31 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import Gateway from "./Gateway";
-import {loadGatewayIdentification, getGatewayIdendificaton} from "../store/entities/gateway";
+import LoadingIndicator from "./LoadingIndicator";
+import { fetchJson } from "../backend";
 
 
 export default function IOL_Master({ iol_master_data }) {
   //const [iolMaster, setIolMasterData] = React.useState(iol_master_data);
-  //const dispatch = useDispatch();
-  //const gatewayIdent = useSelector(getGatewayIdendificaton);
+  const [iolMaster, setIolMasterData] = React.useState(null);
 
-  /*useEffect(
-    () => { dispatch(loadGatewayIdentification()); },
-    [] //nur 1x rendern
-  );*/
+  async function loadData() {
+    const data = await fetchJson("/iolink/v1/gateway/identification");
+    setIolMasterData(data);
+  }
+
+  React.useEffect(() => {
+    loadData(); }, 
+    []
+  );
+
+  if (!iolMaster) {
+    return <LoadingIndicator />;
+  }
 
   return (
     <div>
-      <Gateway iol_master_param={iol_master_data}></Gateway>
+      {/*<Gateway iol_master_param={iol_master_data}></Gateway>*/}
+      <Gateway iol_master_param={iolMaster}></Gateway>
     </div>
   );
 }

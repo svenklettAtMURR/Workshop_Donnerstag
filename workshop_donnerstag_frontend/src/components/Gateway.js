@@ -12,8 +12,8 @@ export default function Gateway({ iol_master_param }) {
     <div>
       <h4>Gateway information:</h4>
       <ul>
-        <li>Mac-Address: {iol_master_param.mac_address}</li>
-        <li>Serial-Number: {iol_master_param.serial_number}</li>
+        <li>Mac-Address: {iol_master_param.macAddress}</li>
+        <li>Serial-Number: {iol_master_param.serialNumber}</li>
         <li>Product-ID: {iol_master_param.productId}</li>
         <li>Vendor-Namer: {iol_master_param.vendorName}</li>
         <li>Product-Name: {iol_master_param.productName}</li>

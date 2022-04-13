@@ -10,8 +10,8 @@ import IOL_Master from "./components/IOL_Master";
 //(No native “Dictionary” data type in js)
 const iol_master = {
   tag: "example tag",
-  mac_address: "0000",
-  serial_number: "----",
+  macAddress: "0000",
+  serialNumber: "----",
   productId: "----",
   vendorName: "----",
   productName: "----",
