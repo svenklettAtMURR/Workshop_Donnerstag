@@ -18,6 +18,11 @@ export default function IOL_Master({ iol_master_data }) {
     []
   );
 
+  async function sendIdentification(Ident){
+    await sendJson("PUT", "/iolink/v1/gateway/identification/productInstanceUri", {productInstanceUri:Ident});
+    loadIdentification();
+  }
+
   if (!iolMaster) {
     return <LoadingIndicator />;
   }
@@ -26,7 +31,8 @@ export default function IOL_Master({ iol_master_data }) {
     <div>
       {/*<Gateway iol_master_param={iol_master_data}></Gateway>*/}
       <Gateway 
-        iol_master_param={iolMaster}>
+        iol_master_param={iolMaster}
+        onSendTag={sendIdentification}>
       </Gateway>
     </div>
   );

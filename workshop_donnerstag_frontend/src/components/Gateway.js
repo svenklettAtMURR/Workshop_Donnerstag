@@ -1,12 +1,14 @@
 import React from "react";
 
-export default function Gateway({ iol_master_param}) {
+export default function Gateway({ iol_master_param,
+                                  onSendTag        }) {
 
   const [postValue, setPostValue] = React.useState("");
   const sendInvalid = postValue.length === 0;
 
   function handleSendClick() {
-    alert(`Sending ${postValue} to server...`);
+    //alert(`Sending ${postValue} to server...`);
+    onSendTag(postValue);
   }
 
   return (
