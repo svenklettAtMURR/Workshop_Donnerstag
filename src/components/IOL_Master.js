@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Gateway from "./Gateway";
 import LoadingIndicator from "./LoadingIndicator";
 import { fetchJson, sendJson } from "../backend";
+
+import {
+  loadGatewayIdentification,
+  getGatewayIdendificaton,
+  loadGatewayConfiguration,
+  getGatewayConfiguration,
+  postGatewayConfig,
+  updateGatewayConfiguration,
+} from "../store/entities/gateway";
 
 
 export default function IOL_Master({ iol_master_data }) {

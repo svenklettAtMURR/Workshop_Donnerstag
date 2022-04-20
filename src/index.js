@@ -1,10 +1,15 @@
 import React from 'react';
+import { Provider } from "react-redux";
+import configureStore from "./store/configureStore";
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import IOL_Master from "./components/IOL_Master";
 
+
+/* Get configured redux store */
+const store = configureStore();
 
 //Sample data (object) - will be removed later and read from server
 //(No native “Dictionary” data type in js)
