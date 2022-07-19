@@ -1,4 +1,4 @@
-const BACKEND_URL = "http://localhost:2022";
+const BACKEND_URL = "http://localhost:8000";
 //const slowDown = "?slow"; // ""
 const slowDown = "";
 

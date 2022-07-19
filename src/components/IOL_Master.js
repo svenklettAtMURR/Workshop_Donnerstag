@@ -19,7 +19,7 @@ export default function IOL_Master({ iol_master_data }) {
   const [iolMaster, setIolMasterData] = React.useState(null);
 
   async function loadIdentification() {
-    const data = await fetchJson("/iolink/v1/gateway/identification");
+    const data = await fetchJson("/v1/gateway/identification");
     setIolMasterData(data);
   }
 
@@ -29,7 +29,7 @@ export default function IOL_Master({ iol_master_data }) {
   );
 
   async function sendIdentification(Ident){
-    await sendJson("PUT", "/iolink/v1/gateway/identification/productInstanceUri", {productInstanceUri:Ident});
+    await sendJson("POST", "/v1/slots/0/identification", {applicationSpecificTag:Ident, locationTag: "string", functionTag: "string"}  );
     loadIdentification();
   }
 
